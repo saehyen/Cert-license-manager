@@ -36,11 +36,11 @@ echo ""
 # Get server IP
 SERVER_IP=$(hostname -I | awk '{print $1}')
 
-echo "Backend:  http://$SERVER_IP:5000"
-echo "Frontend: http://$SERVER_IP:3000"
+echo "Backend:  http://$SERVER_IP:11050"
+echo "Frontend: http://$SERVER_IP:13000"
 echo ""
 echo "Access from your browser:"
-echo "  http://$SERVER_IP:3000"
+echo "  http://$SERVER_IP:13000"
 echo ""
 echo "Press Ctrl+C to stop servers..."
 echo ""

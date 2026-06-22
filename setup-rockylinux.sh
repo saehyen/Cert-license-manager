@@ -141,7 +141,7 @@ if [ ! -f "backend/.env" ]; then
     read -sp "   Enter MySQL root password: " DB_PASSWORD
     echo ""
     cat > backend/.env << EOF
-PORT=5000
+PORT=11050
 DB_HOST=localhost
 DB_USER=root
 DB_PASSWORD=$DB_PASSWORD
@@ -162,9 +162,9 @@ if [ ! -f ".env" ]; then
     read -p "   Use this IP for API URL? (Y/n): " USE_IP
     
     if [ "$USE_IP" = "n" ] || [ "$USE_IP" = "N" ]; then
-        read -p "   Enter API URL (e.g., http://your-domain.com:5000/api): " API_URL
+        read -p "   Enter API URL (e.g., http://your-domain.com:11050/api): " API_URL
     else
-        API_URL="http://$SERVER_IP:5000/api"
+        API_URL="http://$SERVER_IP:11050/api"
     fi
     
     cat > .env << EOF
@@ -198,14 +198,14 @@ echo "10. Configuring firewall..."
 if command -v firewall-cmd &> /dev/null; then
     read -p "   Open ports 3000 and 5000 in firewall? (Y/n): " OPEN_PORTS
     if [ "$OPEN_PORTS" != "n" ] && [ "$OPEN_PORTS" != "N" ]; then
-        sudo firewall-cmd --permanent --add-port=3000/tcp
-        sudo firewall-cmd --permanent --add-port=5000/tcp
+        sudo firewall-cmd --permanent --add-port=13000/tcp
+        sudo firewall-cmd --permanent --add-port=11050/tcp
         sudo firewall-cmd --reload
-        echo "   OK: Ports 3000 and 5000 opened"
+        echo "   OK: Ports 13000 and 11050 opened"
     else
         echo "   Skipped. Open manually:"
-        echo "   sudo firewall-cmd --permanent --add-port=3000/tcp"
-        echo "   sudo firewall-cmd --permanent --add-port=5000/tcp"
+        echo "   sudo firewall-cmd --permanent --add-port=13000/tcp"
+        echo "   sudo firewall-cmd --permanent --add-port=11050/tcp"
         echo "   sudo firewall-cmd --reload"
     fi
 else
@@ -231,7 +231,7 @@ echo "  2. Frontend (in another terminal):"
 echo "     npm run dev"
 echo ""
 echo "  3. Open browser:"
-echo "     http://$SERVER_IP:3000"
+echo "     http://$SERVER_IP:13000"
 echo ""
 echo "Or use the quick start script:"
 echo "  ./start-rockylinux.sh"

@@ -87,7 +87,7 @@ if (!(Test-Path "backend\.env")) {
     Write-Host "   Creating backend/.env file..." -ForegroundColor Gray
     $dbPassword = Read-Host "Enter MySQL root password"
     $envContent = @"
-PORT=5000
+PORT=11050
 DB_HOST=localhost
 DB_USER=root
 DB_PASSWORD=$dbPassword
@@ -102,7 +102,7 @@ DB_NAME=cert_license_db
 # Frontend .env
 if (!(Test-Path ".env")) {
     Write-Host "   Creating .env file..." -ForegroundColor Gray
-    $envContent = "VITE_API_URL=http://localhost:5000/api"
+    $envContent = "VITE_API_URL=http://localhost:11050/api"
     Set-Content -Path ".env" -Value $envContent
     Write-Host "   OK: .env created" -ForegroundColor Green
 } else {

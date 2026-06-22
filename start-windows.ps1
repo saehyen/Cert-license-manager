@@ -26,12 +26,12 @@ Write-Host "============================================" -ForegroundColor Cyan
 Write-Host "Servers Started!" -ForegroundColor Green
 Write-Host "============================================" -ForegroundColor Cyan
 Write-Host ""
-Write-Host "Backend:  http://localhost:5000" -ForegroundColor White
-Write-Host "Frontend: http://localhost:3000" -ForegroundColor White
+Write-Host "Backend:  http://localhost:11050" -ForegroundColor White
+Write-Host "Frontend: http://localhost:13000" -ForegroundColor White
 Write-Host ""
 Write-Host "Opening browser..." -ForegroundColor Yellow
 Start-Sleep -Seconds 3
-Start-Process "http://localhost:3000"
+Start-Process "http://localhost:13000"
 
 Write-Host ""
 Write-Host "Press any key to stop servers..." -ForegroundColor Yellow

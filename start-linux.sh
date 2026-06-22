@@ -31,17 +31,17 @@ echo "============================================"
 echo "Servers Started!"
 echo "============================================"
 echo ""
-echo "Backend:  http://localhost:5000"
-echo "Frontend: http://localhost:3000"
+echo "Backend:  http://localhost:11050"
+echo "Frontend: http://localhost:13000"
 echo ""
 echo "Opening browser..."
 sleep 2
 
 # Try to open browser
 if command -v xdg-open &> /dev/null; then
-    xdg-open http://localhost:3000
+    xdg-open http://localhost:13000
 elif command -v gnome-open &> /dev/null; then
-    gnome-open http://localhost:3000
+    gnome-open http://localhost:13000
 fi
 
 echo ""

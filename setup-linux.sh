@@ -92,7 +92,7 @@ if [ ! -f "backend/.env" ]; then
     read -sp "Enter MySQL root password: " DB_PASSWORD
     echo ""
     cat > backend/.env << EOF
-PORT=5000
+PORT=11050
 DB_HOST=localhost
 DB_USER=root
 DB_PASSWORD=$DB_PASSWORD
@@ -107,7 +107,7 @@ fi
 if [ ! -f ".env" ]; then
     echo "   Creating .env file..."
     cat > .env << EOF
-VITE_API_URL=http://localhost:5000/api
+VITE_API_URL=http://localhost:11050/api
 EOF
     echo "   OK: .env created"
 else
