@@ -107,7 +107,7 @@ cp .env.example .env
 nano .env
 
 # .env 파일 내용 (서버 IP 또는 도메인으로 수정):
-# VITE_API_URL=http://your-server-ip:5000/api
+# VITE_API_URL=http://your-server-ip:11050/api
 # 또는
 # VITE_API_URL=http://your-domain.com/api
 
@@ -159,7 +159,7 @@ server {
 
     # Backend API
     location /api {
-        proxy_pass http://localhost:5000;
+        proxy_pass http://localhost:11050;
         proxy_http_version 1.1;
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection 'upgrade';

@@ -232,7 +232,7 @@ docker compose ps
 # 로그 확인
 docker compose logs -f
 
-# 브라우저에서 http://localhost:3000 접속
+# 브라우저에서 http://localhost:13000 접속
 ```
 
 ### 방법 3: Docker Desktop GUI 사용
@@ -387,7 +387,7 @@ docker login
 - [ ] `docker compose version` 명령어 실행
 - [ ] `docker run hello-world` 테스트 성공
 - [ ] 프로젝트에서 `docker compose up -d` 실행
-- [ ] http://localhost:3000 접속 확인
+- [ ] http://localhost:13000 접속 확인
 
 ---
 

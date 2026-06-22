@@ -59,7 +59,7 @@ docker-compose up -d
 ```
 
 ### 4단계: 접속 🎉
-브라우저에서 **http://localhost:3000** 열기
+브라우저에서 **http://localhost:13000** 열기
 
 ### 완료!
 - ✅ MySQL 자동 설치 및 설정
@@ -116,7 +116,7 @@ npm run dev
 ```
 
 #### 4. 접속
-브라우저에서 **http://localhost:3000** 자동으로 열림
+브라우저에서 **http://localhost:13000** 자동으로 열림
 
 ---
 
@@ -163,7 +163,7 @@ MySQL과 PostgreSQL 중 선택할 수 있습니다:
 ### 테스트용 (Docker)
 - [ ] Docker 설치
 - [ ] `docker-compose up -d` 실행
-- [ ] http://localhost:3000 접속
+- [ ] http://localhost:13000 접속
 - [ ] 인증서 추가/수정/삭제 테스트
 - [ ] 다크모드 전환 테스트
 - [ ] 검색 및 정렬 테스트
@@ -175,7 +175,7 @@ MySQL과 PostgreSQL 중 선택할 수 있습니다:
 - [ ] 백엔드 .env 설정
 - [ ] 백엔드 실행 (`npm run dev`)
 - [ ] 프론트엔드 실행 (`npm run dev`)
-- [ ] http://localhost:3000 접속 테스트
+- [ ] http://localhost:13000 접속 테스트
 
 ### 프로덕션 (클라우드)
 - [ ] 리눅스 서버 준비
@@ -226,7 +226,7 @@ MySQL과 PostgreSQL 중 선택할 수 있습니다:
 ```bash
 # 포트 변경 (docker-compose.yml)
 ports:
-  - "3001:3000"  # 3001로 변경
+  - "13001:13000"  # 13001로 변경
 ```
 
 **"백엔드 연결 실패"**

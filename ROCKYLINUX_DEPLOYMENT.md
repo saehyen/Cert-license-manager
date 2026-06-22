@@ -37,7 +37,7 @@ chmod +x start-rockylinux.sh
 ```
 
 ### 완료! 🎉
-브라우저에서 **http://서버IP:3000** 접속
+브라우저에서 **http://서버IP:13000** 접속
 
 ---
 
@@ -162,7 +162,7 @@ nano .env
 
 **프론트엔드 .env:**
 ```
-VITE_API_URL=http://서버IP:5000/api
+VITE_API_URL=http://서버IP:11050/api
 ```
 
 ### 8단계: 데이터베이스 초기화
@@ -182,7 +182,7 @@ npm run dev
 npm run dev
 ```
 
-브라우저에서 **http://서버IP:3000** 접속
+브라우저에서 **http://서버IP:13000** 접속
 
 ---
 
@@ -235,7 +235,7 @@ server {
 
     # Backend API
     location /api {
-        proxy_pass http://localhost:5000;
+        proxy_pass http://localhost:11050;
         proxy_http_version 1.1;
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection 'upgrade';

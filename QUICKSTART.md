@@ -91,7 +91,7 @@ server {
     }
 
     location /api {
-        proxy_pass http://localhost:5000;
+        proxy_pass http://localhost:11050;
         proxy_http_version 1.1;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
@@ -129,7 +129,7 @@ npm install
 npm run dev
 ```
 
-브라우저에서 `http://localhost:3000` 자동으로 열림
+브라우저에서 `http://localhost:13000` 자동으로 열림
 
 ---
 
@@ -158,7 +158,7 @@ DB_NAME=cert_license_db
 ### 프론트엔드 (.env)
 ```env
 # 개발 환경
-VITE_API_URL=http://localhost:5000/api
+VITE_API_URL=http://localhost:11050/api
 
 # 프로덕션 환경
 VITE_API_URL=http://your-domain.com/api

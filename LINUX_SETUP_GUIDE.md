@@ -58,7 +58,7 @@ chmod +x start-linux.sh
 - 브라우저 열기 (GUI 환경)
 
 ### 완료! 🎉
-**http://서버IP:3000** 에서 확인
+**http://서버IP:13000** 에서 확인
 
 ---
 
@@ -155,7 +155,7 @@ nano .env
 
 `.env` 파일 내용:
 ```
-VITE_API_URL=http://localhost:5000/api
+VITE_API_URL=http://localhost:11050/api
 ```
 
 ### 7단계: 데이터베이스 초기화
@@ -255,7 +255,7 @@ server {
 
     # Backend API
     location /api {
-        proxy_pass http://localhost:5000;
+        proxy_pass http://localhost:11050;
         proxy_http_version 1.1;
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection 'upgrade';
@@ -323,8 +323,8 @@ sudo tail -f /var/log/mysql/error.log
 ### ❌ 포트가 이미 사용 중
 
 ```bash
-# 3000 포트 확인
-sudo lsof -i :3000
+# 13000 포트 확인
+sudo lsof -i :13000
 
 # 프로세스 종료
 kill -9 [PID]

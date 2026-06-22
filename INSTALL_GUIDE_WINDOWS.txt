@@ -63,7 +63,7 @@ PowerShell에서:
 
 2. docker compose up -d
 
-3. 브라우저에서 http://localhost:3000 접속
+3. 브라우저에서 http://localhost:13000 접속
 
 완료! 🎉
 
@@ -125,7 +125,7 @@ docker compose restart
 □ docker compose version 확인
 □ cd c:\kiro\cert-license-manager
 □ docker compose up -d 실행
-□ http://localhost:3000 접속 확인
+□ http://localhost:13000 접속 확인
 
 
 완료하면 프로젝트가 실행됩니다! 🚀

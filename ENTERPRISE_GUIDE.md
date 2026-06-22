@@ -95,7 +95,7 @@ location / {
     allow 10.0.0.0/8;       # VPN IP 대역
     deny all;
     
-    proxy_pass http://localhost:3000;
+    proxy_pass http://localhost:13000;
 }
 ```
 
@@ -106,7 +106,7 @@ location / {
     auth_basic "Restricted Access";
     auth_basic_user_file /etc/nginx/.htpasswd;
     
-    proxy_pass http://localhost:3000;
+    proxy_pass http://localhost:13000;
 }
 ```
 

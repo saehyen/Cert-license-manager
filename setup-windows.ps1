@@ -150,7 +150,7 @@ Write-Host "2. Start Frontend Server (in another PowerShell):" -ForegroundColor 
 Write-Host "   npm run dev" -ForegroundColor White
 Write-Host ""
 Write-Host "3. Open browser:" -ForegroundColor Cyan
-Write-Host "   http://localhost:3000" -ForegroundColor White
+Write-Host "   http://localhost:13000" -ForegroundColor White
 Write-Host ""
 Write-Host "Or use the quick start script:" -ForegroundColor Yellow
 Write-Host "   .\start-windows.ps1" -ForegroundColor White

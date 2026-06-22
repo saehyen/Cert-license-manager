@@ -40,7 +40,7 @@ cd c:\kiro\cert-license-manager
 - 브라우저 자동 열기
 
 ### 완료! 🎉
-**http://localhost:3000** 에서 확인
+**http://localhost:13000** 에서 확인
 
 ---
 
@@ -138,7 +138,7 @@ notepad .env
 
 `.env` 파일 내용:
 ```
-VITE_API_URL=http://localhost:5000/api
+VITE_API_URL=http://localhost:11050/api
 ```
 
 #### C. 데이터베이스 초기화
@@ -173,7 +173,7 @@ cd c:\kiro\cert-license-manager
 npm run dev
 ```
 
-브라우저에서 자동으로 **http://localhost:3000** 열림
+브라우저에서 자동으로 **http://localhost:13000** 열림
 
 ---
 
@@ -226,13 +226,13 @@ Start-Service MySQL80
 
 **증상:**
 ```
-Error: listen EADDRINUSE: address already in use :::3000
+Error: listen EADDRINUSE: address already in use :::13000
 ```
 
 **해결방법:**
 ```powershell
-# 3000 포트 사용 프로세스 찾기
-netstat -ano | findstr :3000
+# 13000 포트 사용 프로세스 찾기
+netstat -ano | findstr :13000
 
 # 프로세스 종료 (PID 확인 후)
 taskkill /PID [PID번호] /F
@@ -327,8 +327,8 @@ VITE_API_URL=http://localhost:5001/api  # 백엔드 포트에 맞춤
 - [ ] backend/.env 설정
 - [ ] .env 설정
 - [ ] 데이터베이스 초기화
-- [ ] 백엔드 서버 실행 (http://localhost:5000)
-- [ ] 프론트엔드 서버 실행 (http://localhost:3000)
+- [ ] 백엔드 서버 실행 (http://localhost:11050)
+- [ ] 프론트엔드 서버 실행 (http://localhost:13000)
 - [ ] 브라우저 접속 확인
 - [ ] 인증서 추가 테스트
 

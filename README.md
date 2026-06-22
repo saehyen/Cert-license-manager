@@ -14,7 +14,7 @@ cd cert-license-manager
 # 2. 실행
 .\start-windows.ps1
 
-# 3. 브라우저에서 http://localhost:3000 접속
+# 3. 브라우저에서 http://localhost:13000 접속
 ```
 
 📖 자세히: [WINDOWS_SETUP_GUIDE.md](./WINDOWS_SETUP_GUIDE.md)
@@ -156,7 +156,7 @@ cert-license-manager/
 
 ### 프론트엔드 (.env)
 ```env
-VITE_API_URL=http://localhost:5000/api
+VITE_API_URL=http://localhost:11050/api
 ```
 
 ### 백엔드 (backend/.env)
