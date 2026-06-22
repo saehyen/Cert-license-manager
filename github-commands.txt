@@ -1,0 +1,17 @@
+﻿# GitHub Upload Commands
+
+# 1. Add all files
+git add .
+
+# 2. First commit
+git commit -m "Initial commit: SSL Certificate & License Management System"
+
+# 3. Add remote (Replace YOUR_USERNAME with your GitHub username)
+git remote add origin https://github.com/YOUR_USERNAME/cert-license-manager.git
+
+# 4. Push to GitHub
+git push -u origin main
+
+# If main branch doesn't exist, create it:
+# git branch -M main
+# git push -u origin main

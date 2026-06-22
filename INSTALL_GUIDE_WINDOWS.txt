@@ -1,0 +1,135 @@
+================================================================================
+🐳 Windows에서 Docker 설치 및 프로젝트 실행 - 초간단 가이드
+================================================================================
+
+■ 방법 1: 자동 설치 스크립트 (가장 쉬움) ★★★★★
+
+1. PowerShell을 **관리자 권한**으로 실행
+   (시작 메뉴에서 PowerShell 검색 → 우클릭 → "관리자 권한으로 실행")
+
+2. 프로젝트 폴더로 이동:
+   cd c:\kiro\cert-license-manager
+
+3. 자동 설치 스크립트 실행:
+   .\install-docker.ps1
+
+4. 화면 안내에 따라 진행
+   - WSL 자동 설치
+   - Docker Desktop 다운로드 링크 제공
+   - 재시작 필요 시 알림
+
+5. Docker Desktop 설치 후 다시 스크립트 실행
+
+6. 완료!
+
+
+■ 방법 2: 수동 설치 (단계별)
+
+▶ 1단계: WSL 2 설치
+
+PowerShell (관리자 권한):
+
+  wsl --install
+  
+재시작 필요
+
+▶ 2단계: Docker Desktop 다운로드
+
+브라우저에서 다음 링크 열기:
+https://www.docker.com/products/docker-desktop/
+
+"Download for Windows" 클릭 → 설치
+
+▶ 3단계: Docker Desktop 실행
+
+바탕화면 또는 시작 메뉴에서 "Docker Desktop" 실행
+트레이에 고래 아이콘이 나타나면 준비 완료
+
+▶ 4단계: 설치 확인
+
+PowerShell (일반 권한):
+
+  docker --version
+  docker compose version
+
+둘 다 버전이 출력되면 성공!
+
+
+■ 프로젝트 실행하기
+
+PowerShell에서:
+
+1. cd c:\kiro\cert-license-manager
+
+2. docker compose up -d
+
+3. 브라우저에서 http://localhost:3000 접속
+
+완료! 🎉
+
+
+■ 자주 발생하는 오류 해결
+
+❌ "docker: command not found"
+→ Docker Desktop이 실행 중인지 확인
+→ PowerShell 새로 열기
+
+❌ "WSL 2 installation is incomplete"
+→ https://aka.ms/wsl2kernel 다운로드 및 설치
+→ 재시작
+
+❌ "Hardware assisted virtualization"
+→ BIOS에서 Virtualization 활성화 필요
+→ 재부팅 시 F2/F10/Del 키 → Virtualization 찾아서 Enable
+
+❌ "port is already allocated"
+→ 포트가 사용 중
+→ 다른 MySQL이 실행 중인지 확인:
+   netstat -ano | findstr :3306
+→ docker-compose.yml에서 포트 변경:
+   ports: - "3307:3306"
+
+
+■ 유용한 명령어
+
+# 컨테이너 시작
+docker compose up -d
+
+# 컨테이너 중지
+docker compose down
+
+# 로그 보기
+docker compose logs -f
+
+# 상태 확인
+docker compose ps
+
+# 재시작
+docker compose restart
+
+
+■ 도움말 문서
+
+- 상세 설치 가이드: WINDOWS_DOCKER_SETUP.md
+- Docker 사용법: DOCKER_GUIDE.md
+- 빠른 시작: START_HERE.md
+- 프로젝트 설명: README.md
+
+
+■ 체크리스트
+
+□ WSL 2 설치
+□ Docker Desktop 설치
+□ Docker Desktop 실행
+□ docker --version 확인
+□ docker compose version 확인
+□ cd c:\kiro\cert-license-manager
+□ docker compose up -d 실행
+□ http://localhost:3000 접속 확인
+
+
+완료하면 프로젝트가 실행됩니다! 🚀
+
+================================================================================
+문제가 있나요? WINDOWS_DOCKER_SETUP.md 파일을 참조하세요.
+================================================================================
