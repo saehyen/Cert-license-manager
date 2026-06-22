@@ -44,8 +44,8 @@ const CertificateModal = ({ isOpen, onClose, onSave, certificate }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="modal-overlay" onClick={onClose}>
-      <div className="modal" onClick={(e) => e.stopPropagation()}>
+    <div className="modal-overlay">
+      <div className="modal">{/* onClick={(e) => e.stopPropagation()} 제거 - 이제 필요없음 */}
         <h2>{certificate ? 'SSL 인증서 수정' : 'SSL 인증서 추가'}</h2>
         <form onSubmit={handleSubmit}>
           <div className="form-group">

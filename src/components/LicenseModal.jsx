@@ -46,8 +46,8 @@ const LicenseModal = ({ isOpen, onClose, onSave, license }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="modal-overlay" onClick={onClose}>
-      <div className="modal" onClick={(e) => e.stopPropagation()}>
+    <div className="modal-overlay">
+      <div className="modal">{/* onClick={(e) => e.stopPropagation()} 제거 - 이제 필요없음 */}
         <h2>{license ? '라이센스 수정' : '라이센스 추가'}</h2>
         <form onSubmit={handleSubmit}>
           <div className="form-group">
