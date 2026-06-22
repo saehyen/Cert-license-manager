@@ -21,23 +21,33 @@ cd cert-license-manager
 
 ### 🐧 Linux에서 실행
 
+#### Ubuntu/Debian
 ```bash
-# 1. 프로젝트 다운로드
-git clone https://github.com/YOUR_USERNAME/cert-license-manager.git
-cd cert-license-manager
+git clone https://github.com/saehyen/Cert-license-manager.git
+cd Cert-license-manager
 
-# 2. 자동 설정
 chmod +x setup-linux.sh
 ./setup-linux.sh
 
-# 3. 실행
 chmod +x start-linux.sh
 ./start-linux.sh
-
-# 4. 브라우저에서 http://localhost:3000 접속
 ```
 
-📖 자세히: [LINUX_SETUP_GUIDE.md](./LINUX_SETUP_GUIDE.md)
+#### Rocky Linux / AlmaLinux
+```bash
+git clone https://github.com/saehyen/Cert-license-manager.git
+cd Cert-license-manager
+
+chmod +x setup-rockylinux.sh
+./setup-rockylinux.sh
+
+chmod +x start-rockylinux.sh
+./start-rockylinux.sh
+```
+
+📖 자세히: 
+- Ubuntu/Debian: [LINUX_SETUP_GUIDE.md](./LINUX_SETUP_GUIDE.md)
+- Rocky Linux: [ROCKYLINUX_DEPLOYMENT.md](./ROCKYLINUX_DEPLOYMENT.md)
 
 ---
 
