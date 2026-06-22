@@ -33,6 +33,10 @@ function App() {
     setTheme(savedTheme);
     document.documentElement.setAttribute('data-theme', savedTheme);
     
+    console.log('🔧 API 설정:');
+    console.log('  - API_URL:', API_URL);
+    console.log('  - VITE_API_URL 환경변수:', import.meta.env.VITE_API_URL);
+    
     // 초기 데이터 로드
     fetchCertificates();
     fetchLicenses();
@@ -42,8 +46,17 @@ function App() {
   const fetchCertificates = async () => {
     try {
       setLoading(true);
+      console.log('🔄 인증서 조회 시작:', `${API_URL}/certificates`);
       const response = await fetch(`${API_URL}/certificates`);
+      console.log('📡 응답 상태:', response.status, response.statusText);
+      
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      
       const data = await response.json();
+      console.log('✅ 인증서 데이터:', data.length, '개');
+      
       // DB 컬럼명을 프론트엔드 형식으로 변환
       const formatted = data.map(cert => ({
         id: cert.id,
@@ -57,8 +70,13 @@ function App() {
       }));
       setCertificates(formatted);
     } catch (error) {
-      console.error('인증서 조회 실패:', error);
-      alert('인증서를 불러오는데 실패했습니다.');
+      console.error('❌ 인증서 조회 실패:', error);
+      console.error('에러 상세:', {
+        message: error.message,
+        name: error.name,
+        stack: error.stack
+      });
+      alert(`인증서를 불러오는데 실패했습니다.\n\n에러: ${error.message}\n\n백엔드 서버가 실행 중인지 확인하세요 (http://localhost:11050)`);
     } finally {
       setLoading(false);
     }
@@ -67,8 +85,17 @@ function App() {
   const fetchLicenses = async () => {
     try {
       setLoading(true);
+      console.log('🔄 라이센스 조회 시작:', `${API_URL}/licenses`);
       const response = await fetch(`${API_URL}/licenses`);
+      console.log('📡 응답 상태:', response.status, response.statusText);
+      
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      
       const data = await response.json();
+      console.log('✅ 라이센스 데이터:', data.length, '개');
+      
       // DB 컬럼명을 프론트엔드 형식으로 변환
       const formatted = data.map(license => ({
         id: license.id,
@@ -83,8 +110,13 @@ function App() {
       }));
       setLicenses(formatted);
     } catch (error) {
-      console.error('라이센스 조회 실패:', error);
-      alert('라이센스를 불러오는데 실패했습니다.');
+      console.error('❌ 라이센스 조회 실패:', error);
+      console.error('에러 상세:', {
+        message: error.message,
+        name: error.name,
+        stack: error.stack
+      });
+      alert(`라이센스를 불러오는데 실패했습니다.\n\n에러: ${error.message}\n\n백엔드 서버가 실행 중인지 확인하세요 (http://localhost:11050)`);
     } finally {
       setLoading(false);
     }

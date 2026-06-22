@@ -35,12 +35,15 @@ pool.getConnection()
 
 // SSL 인증서 관련 API
 app.get('/api/certificates', async (req, res) => {
+  console.log('📥 GET /api/certificates 요청 받음');
   try {
     const [rows] = await pool.query('SELECT * FROM certificates ORDER BY expiry_date ASC');
+    console.log(`✅ 인증서 ${rows.length}개 조회 성공`);
     res.json(rows);
   } catch (error) {
-    console.error('인증서 조회 오류:', error);
-    res.status(500).json({ error: '인증서를 가져오는데 실패했습니다.' });
+    console.error('❌ 인증서 조회 오류:', error.message);
+    console.error('상세 에러:', error);
+    res.status(500).json({ error: '인증서를 가져오는데 실패했습니다.', details: error.message });
   }
 });
 
@@ -86,12 +89,15 @@ app.delete('/api/certificates/:id', async (req, res) => {
 
 // 라이센스 관련 API
 app.get('/api/licenses', async (req, res) => {
+  console.log('📥 GET /api/licenses 요청 받음');
   try {
     const [rows] = await pool.query('SELECT * FROM licenses ORDER BY expiry_date ASC');
+    console.log(`✅ 라이센스 ${rows.length}개 조회 성공`);
     res.json(rows);
   } catch (error) {
-    console.error('라이센스 조회 오류:', error);
-    res.status(500).json({ error: '라이센스를 가져오는데 실패했습니다.' });
+    console.error('❌ 라이센스 조회 오류:', error.message);
+    console.error('상세 에러:', error);
+    res.status(500).json({ error: '라이센스를 가져오는데 실패했습니다.', details: error.message });
   }
 });
 
@@ -141,6 +147,14 @@ app.get('/api/health', (req, res) => {
 });
 
 // 서버 시작
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
+  console.log('============================================');
   console.log(`🚀 서버가 포트 ${PORT}에서 실행 중입니다.`);
+  console.log(`📍 로컬: http://localhost:${PORT}`);
+  console.log(`📍 네트워크: http://0.0.0.0:${PORT}`);
+  console.log('============================================');
+  console.log('');
+  console.log('💡 프론트엔드 .env 파일 확인:');
+  console.log(`   VITE_API_URL=http://localhost:${PORT}/api`);
+  console.log('');
 });
