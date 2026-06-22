@@ -14,7 +14,15 @@ const LicenseModal = ({ isOpen, onClose, onSave, license }) => {
 
   useEffect(() => {
     if (license) {
-      setFormData(license);
+      // 날짜 형식을 YYYY-MM-DD로 변환
+      const formattedDate = license.expiryDate 
+        ? new Date(license.expiryDate).toISOString().split('T')[0]
+        : '';
+      
+      setFormData({
+        ...license,
+        expiryDate: formattedDate
+      });
     } else {
       setFormData({
         customer: '',

@@ -13,7 +13,15 @@ const CertificateModal = ({ isOpen, onClose, onSave, certificate }) => {
 
   useEffect(() => {
     if (certificate) {
-      setFormData(certificate);
+      // 날짜 형식을 YYYY-MM-DD로 변환
+      const formattedDate = certificate.expiryDate 
+        ? new Date(certificate.expiryDate).toISOString().split('T')[0]
+        : '';
+      
+      setFormData({
+        ...certificate,
+        expiryDate: formattedDate
+      });
     } else {
       setFormData({
         customer: '',
